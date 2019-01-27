@@ -69,7 +69,6 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
             $scope.ngMostrarOcultarBanc = false;
             $scope.ngMostrarOcultarUsu = false;
             $scope.ngMostrarOcultarBan = false;
-            $scope.ngMostrarOcultarEje = false;
         }
     }
 

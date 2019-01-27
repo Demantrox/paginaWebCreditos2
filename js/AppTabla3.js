@@ -134,16 +134,19 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
         localStorage.clear();
     }
     
-    //MOSTRAR U OCULTAR
-    $scope.ngMostrarOcultar1 = true;
-    $scope.ngMostrarOcultar = false;
-    $scope.ngMostrarOcultarFun = function(ver){
-        if(ver){
-            $scope.ngMostrarOcultar = false;
-            $scope.ngMostrarOcultar1 = true;
+
+    $scope.Mostrar = true;
+    $scope.Ocultar = false;
+    $scope.MostrarOtros = function(param){
+        if(param == "show"){
+            $scope.Mostrar = true;
+            $scope.Ocultar = true;
+        }else if(param == "hide"){
+            $scope.Mostrar = false;
+            $scope.Ocultar = false;
         }else{
-            $scope.ngMostrarOcultar = true;
-            $scope.ngMostrarOcultar1 = false;
+            $scope.Mostrar = true;
+            $scope.Ocultar = false;
         }
     }
 });
