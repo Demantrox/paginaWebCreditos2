@@ -11,6 +11,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.mensaje = "";
     $scope.botonInicio = true;
     $scope.botonRegistrarse = true;
+    $scope.mostrarBarraErrores = false;
     
     if($scope.user){
         window.location.href="paginaTablaRegistrado.html"
@@ -30,6 +31,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
         if($scope.rut=="" || $scope.password==""){
             $scope.mensaje = "Ingrese datos";
             $scope.mostrarError = true;
+            $scope.mostrarBarraErrores = true; //Mostrar barra errores solo si no se ingresa nada.
             return;
 
         }else{
@@ -55,6 +57,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                         $scope.mensaje = "**USUARIO BANEADO**";
                         $scope.botonInicio = false;
                         $scope.botonRegistrarse = false;
+                        $scope.mostrarBarraErrores = true;
                        
                     return false;
                     }
