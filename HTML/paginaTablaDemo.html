@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../css/Estilos.css">
-    <title>Simular</title>
+    <title>Simular Demo</title>
 </head>
 <body>
                     <!--BARRA DE MENU PRINCIPAL-->
@@ -17,21 +17,29 @@
                     <div class="navbar-header">
                     <a class="navbar-brand" href="Portada.html">Inicio</a>
                     </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
+                    <div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                        <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span>Registro</a></li>
                     </ul>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-            <!--FORMULARIO DATOS PARA SOLICITAR CREDITO-->
+            <!--INTRODUCCION A LA DEMO Y INFO PARA EL USUARIO-->
+            <h4 style="text-align:center;color:red"><strong>ATENCION!</strong><br><br>Esta es solo una <strong>demostracion</strong> de la funcionalidad del programa.<br>
+                Para usar <strong>todas</strong> sus caracteristicas tiene que crearse una cuenta.<br>
+                <span style="font-size:30px;" class="glyphicon glyphicon-eye-close"></span><br>
+                Registrandote tendras acceso a consultas personalizadas con montos y cuotas a tu eleccion<br>
+                Detalle individual o completo segun entidad bancaria.<br>
+                Historial de Simulaciones y mas. 
+            </h4>
+            
 <div class="container" ng-controller="ctrlTabla"><hr>
 <form>
             <!--MONTO A SOLICITAR-->
     <div class="row">
-        <div class="form-group" ng-show="ngMostrarOcultar1">
+        <div class="form-group">
         <label class="col-md-3 col-md-offset-3">Monto del Credito</label>
             <div class="col-md-3">
                 <select  class="change form-control" tabindex="1" type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">
@@ -41,18 +49,13 @@
                     <option value="3000000">$3.000.000</option>
                     <option value="4000000">$4.000.000</option>
                     <option value="5000000">$5.000.000</option>
-                    <option value="6000000">$6.000.000</option>
-                    <option value="7000000">$7.000.000</option>
-                    <option value="8000000">$8.000.000</option>
-                    <option value="9000000">$9.000.000</option>
-                    <option value="10000000">$10.000.000</option>
                 </select>
             </div>   
         </div>
     </div><br>    
                             <!--NUMERO DE CUOTAS-->
     <div class="row">
-        <div class ="form-group" ng-show="ngMostrarOcultar1"> 
+        <div class ="form-group"> 
             <label class="col-md-3 col-md-offset-3">Numero de Cuotas</label>
                 <div class ="col-md-3">
                 <select class="form-control" placeholder="Numero de Cuotas" ng-model="numeroCuotas" required="required">
@@ -60,72 +63,17 @@
                     <option value="12">12 Cuotas</option>
                     <option value="24">24 Cuotas</option>
                     <option value="36">36 Cuotas</option>
-                    <option value="48">48 Cuotas</option>
-                    <option value="60">60 Cuotas</option>
-                    <option value="72">72 Cuotas</option>
                 </select>
             </div>
         </div>
-    </div><br>                    
-    
-                     <!--TRAE LA INFO DE UN BANCO A ELECCION-->
-                            <!--BANCO PERSONALIZADO-->
-    <div class="row">
-        <div class ="form-group" ng-show="ngMostrarOcultar1">
-            <label class="col-md-3 col-md-offset-3" >Simular un banco</label>
-            <div class="col-md-3">
-                <select class="form-control" ng-model ="nombre">
-                    <option value =''>Elegir Banco</option>
-                    <option value="Banco Santander">Banco Santander</option>
-                    <option value="Banco Consorcio">Banco Consorcio</option>
-                    <option value="Banco de Chile">Banco de Chile</option>
-                    <option value="Banco Estado">Banco Estado</option>
-                    <option value="Banco Falabella">Banco Falabella</option>
-                    <option value="Banco Itaú">Banco Itaú</option>
-                    <option value="Banco Ripley">Banco Ripley</option>
-                    <option value="Banco Security">Banco Security</option>
-                    <option value="BCI Nova">BCI Nova</option>
-                    <option value="Scotiabank">Scotiabank</option>
-                </select>
-            </div>
-        </div>
-    </div>
-        <!--INPUTS PARA INGRESAR MONTO Y CUOTAS PERSONALIZADAS-->
-    <div class="form-group" ng-show="ngMostrarOcultar">
-        <div class="row">
-        <label class="col-md-3 col-md-offset-3">Ingrese Monto a Solicitar</label>
-            <div class="col-md-3">
-                <input type="number" class="form-control"style="-moz-appearance:textfield;" placeholder="Ingrese Monto"  ng-model="montoSolicitado1" required="required">     
-            </div>
-        </div>
-        <br>
-        <div class="row">
-        <label class="col-md-3 col-md-offset-3">Ingrese Cuotas del Credito</label>  
-            <div class="col-md-3">
-                <input type="number" class="form-control" style="-moz-appearance:textfield;" placeholder="Ingrese Cuotas"  ng-model="numeroCuotas1" required="required">
-            </div> 
-        </div>   
-    </div><br><hr>
+    </div><br><hr>                  
+
                                    <!--BOTONES-->
-    <!--Mostrar consulta personalizada, Simular con un banco o simular con todos-->
+    <!--SIMULACION CON TODOS LOS BANCOS DISPONIBLES -->
     <div style="text-align:center">
-        <button class="btn btn-success btn-md" ng-click="ngMostrarOcultarFun(ngMostrarOcultar)">Personalizar Mi Credito</button>
         <button class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
-        <button type="input" class="btn btn-info"  ng-click=traerBanco() >Simular Banco</button>
     </div><hr>   
-    <!--Datos a ingresar en consulta personalizada-->  
 </form>
-                            <!--INFO DEL CREDITO PERSONALIZADO-->
-    <div class="container" style="background-color: rgba( 93, 173, 226 , 0.2);width: 50%;border-radius: 15px;text-align:center;border:2px solid;border-color: lightslategrey" ng-show="mostrarInformacionPersonalizada">
-        <div><br>
-            <p>Su credito solicitado por un monto de: ${{montoSolicitado}}</p>
-            <p>En la institucion: {{nombreBanco}}</p>
-            <p>Tiene un costo total de: ${{costoTotal}}</p>
-            <p>Cada cuota cuesta: ${{cuotaMensual}}</p>
-            <p>Con un interes del {{tasaInteres}}% mensual</p>
-            <p>Al terminar de pagar, usted habra pagado un total de ${{totalIntereses}} en intereses, ademas de ${{gastosAsociados}} en gastos asociados.</p><br>
-        </div>
-    </div><hr>
 
                                  <!--TABLA-->
     <div class="panel-body">
@@ -184,6 +132,7 @@
             </tbody>
         </table>
     </div>
+                               <!--CABECERA-->
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
